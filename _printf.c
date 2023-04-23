@@ -10,7 +10,7 @@
 
 int _printf(const char *format, ...);
 {
-	int m, _value = 0;
+	unsigned int m = 0, _value = 0;
 
 	va_list X;
 
@@ -28,11 +28,11 @@ int _printf(const char *format, ...);
 		else if (format[m + 1] == 's')
 		{
 
-			int _value = put_s(va_arg(X, char *));
+			int _val = put_s(va_arg(X, char *));
 
 			m++;
 
-			_value += (_value - 1);
+			_value += (_val - 1);
 
 		}
 		else if (format[m + 1] == 'c')

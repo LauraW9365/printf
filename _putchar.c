@@ -2,15 +2,15 @@
 #include "main.h"
 
 /**
- * _putchar - writes the character z for stdout
- * @z: The character to print
+ * _putchar - writes the character c for stdout
+ * @c: The character to print
  *
  * Return: 1 on success
 */
 
-int _putchar(char z)
+int _putchar(char c)
 {
 	
-	return (write(1, &z, 1));
+	return (write(1, &c, 1));
 
 }
