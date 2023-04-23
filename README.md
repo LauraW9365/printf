@@ -1,1 +1,1 @@
-Ths is a group project for printf
+This is a group project for printf

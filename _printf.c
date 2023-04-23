@@ -8,7 +8,7 @@
  * excluding the null byte used to end output to strings
 */
 
-int _printf(const char *format, ...);
+int _printf(const char *format, ...)
 {
 	unsigned int m = 0, _value = 0;
 
