@@ -8,43 +8,48 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int m = 0, x_value = 0;
+	int m = 0, l = 0;
+	char c, *s;
 
-	va_list arg;
-
-	va_start(arg, format);
-
+	va_list args;
+	va_start(args, format);
+	
 	if (format == NULL)
 		return (-1);
 
-	for (m = 0; format[m] != '\0'; m++)
+	for (; format[m] != '\0'; m++)
 	{
 		if (format[m] != '%')
-
+		{
 			_putchar(format[m]);
+			l++;
+		}
+		else if (format[m + 1] != 's' && format[m + 1] != 'c')
+		{	
+			_putchar('%');
+			l++;
+			if (format[m +1] == '%')
+                                m++;
+                }
+		else if (format[m + 1] == 'c')
+		{
+			c  = va_arg(args, int);
+			_putchar(c);
+			l++;
+			m++;
 		}
 		else if (format[m + 1] == 's')
 		{
-			int _val = va_arg(arg, char *);
-
-			m++;
-
-			x_value += (x_val - 1);
-
+			s = va_arg(args, char*);
+			while(*s)
+			{
+				_putchar(*s++);
+				l++;
+				m++;
+			}
 		}
-		else if (format[m + 1] == 'c')
-		{
-			_putchar(va_arg(X, int);
-			m++;
-		}
-
-		else if (format[m + 1] != 's' && format[m + 1] != 'c')
-		{
-
-			_putchar('%');
-			m++;
-		}
-		x_value += 1;
+		m++;
 	}
-	return (x_value);
+	va_end(args);
+	return (l);
 }
