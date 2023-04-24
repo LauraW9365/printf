@@ -3,9 +3,7 @@
 /**
  * _printf - produces output accoridng to a format
  * @format: the format of the output
- *
- * Return: the number of characters printed,
- * excluding the null byte used to end output to strings
+ * Return: the number of characters printed
 */
 
 int _printf(const char *format, ...)
@@ -27,8 +25,7 @@ int _printf(const char *format, ...)
 		}
 		else if (format[m + 1] == 's')
 		{
-
-			int _val = put_s(va_arg(arg, char *));
+			int _val = va_arg(arg, char *);
 
 			m++;
 
