@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * prints_character - prints character
+ * print_character - prints character
  * @args: the list of arguments
  * Return: characters printed
 */
 
-int prints_character(va_list args)
+int print_character(va_list args)
 {
 	char c = va_arg(args, int);
 
@@ -16,12 +16,12 @@ int prints_character(va_list args)
 }
 
 /**
- * prints_string - prints a string
+ * print_string - prints a string
  * @args: list of arguments
  * Return: characters printed
 */
 
-int prints_string(va_list args)
+int print_string(va_list args)
 {
 	int m = 0;
 
@@ -41,12 +41,12 @@ int prints_string(va_list args)
 }
 
 /**
- * prints_percent - prints the percent smybol
+ * print_percent - prints the percent smybol
  * @args: the list of arguments
  * Return: characters printed
 */
 
-int prints_percent(va_list args)
+int print_percent(va_list args)
 {
 	_putchar('%');
 		return (1);
