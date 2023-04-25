@@ -44,24 +44,24 @@ int print_rot13(va_list q)
 
 int prints_reverse(va_list x)
 {
-        int j;
-        char *strg;
-        char *p;
+	int j;
+	char *strg;
+	char *p;
 
-        strg = va_arg(x, char *);
+	strg = va_arg(x, char *);
 
-        if (!strg)
-                return (-1);
+	if (!strg)
+		return (-1);
 
-        p = rev_string(strg);
+	p = rev_string(strg);
 
-        if (!p)
-                p = "(null)";
+	if (!p)
+		p = "(null)";
 
-        for (; p[j] != '\0'; j++)
-                _putchar(p[j]);
+	for (; p[j] != '\0'; j++)
+		_putchar(p[j]);
 
-        return (j);
+	return (j);
 }
 
 
