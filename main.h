@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <stdio.h>
+#include <unistd.h>
 #include <stdarg.h>
 
 int print_percent(va_list args);
@@ -20,6 +21,6 @@ int _printf(const char *format, ...);
 int print_binary(va_list arg, char buf[], int fg, int w, int pr, int sz);
 int _putchar(char c);
 int prints_reverse(va_list x);
-
+int put_s(char *s);
 
 #endif

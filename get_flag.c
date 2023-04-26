@@ -40,3 +40,19 @@ int get_flag(char st, int *j)
 	}
 	return (k);
 }
+
+int put_s(char *s);
+{
+		int h = 0, l = 0;
+
+		if (s)
+		{
+			while (s[h] != '\0')
+			{
+				_putchar(s[h]);
+				l += 1;
+				h++;
+			}
+		}
+		return (l);
+}

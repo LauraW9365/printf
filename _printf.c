@@ -8,45 +8,40 @@
 
 int _printf(const char *format, ...)
 {
-	int m = 0, l = 0;
-	char c, *s;
+	int m = 0;
+	int l = 0;
+
 	va_list args;
+
 	va_start(args, format);
+
 	if (format == NULL)
 		return (-1);
+
 	for (; format[m] != '\0'; m++)
 	{
 		if (format[m] != '%')
 		{
 			_putchar(format[m]);
-			l++;
 		}
-		else if (format[m + 1] != 's' && format[m + 1] != 'c')
-		{
-			_putchar('%');
-			l++;
-			if (format[m + 1] == '%')
-				m++;
-                }
 		else if (format[m + 1] == 'c')
 		{
-			c  = va_arg(args, int);
-			_putchar (c);
-			l++;
+			_putchar(va_arg(args, int);
 			m++;
 		}
 		else if (format[m + 1] == 's')
 		{
-			s = va_arg(args, char*);
-			while (*s)
-			{
-				_putchar(*s++);
-				l++;
-				m++;
-			}
+			int l = put_s(va_arg(args, char *));
+
+			m++;
+			l += (v = 1);
 		}
-		m++;
+		else if (format[m + 1] == '%')
+		{
+			_putchar('%');
+			m++;
+		}
+		l += 1;
 	}
-	va_end(args);
 	return (l);
 }

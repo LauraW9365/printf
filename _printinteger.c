@@ -69,7 +69,7 @@ int print_int(va_list arg, char buf[],
 	}
 		while (num > 0)
 		{
- 			buf[i--] = (num % 10) + '0';
+			buf[i--] = (num % 10) + '0';
 			num /= 10;
 		}
 		i++;
