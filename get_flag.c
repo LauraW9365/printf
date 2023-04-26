@@ -7,34 +7,34 @@
  * Return: 1 if flag is active or 0
 */
 
-int get_flag(char st, int *j)
+int get_flag(char st, char *flag)
 {
 	int k = 0;
 
 	switch (st)
 	{
-		case ' ';
-			fl->space = 1;
+		case ' ':
+			flag = 1;
 			k = 1;
 			break;
 
-		case '+';
-			fl->plus = 1;
+		case '+':
+			flag = 1;
 			k = 1;
 			break;
 
-		case '#';
-			fl->hash = 1;
+		case '#':
+			flag = 1;
 			k = 1;
 			break;
 
-		case '-';
-			fl->minus = 1;
+		case '-':
+			flag = 1;
 			k = 1;
 			break;
 
-		case '0';
-			fl->zero = 1;
+		case '0':
+			flag = 1;
 			k = 1;
 			break;
 	}

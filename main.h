@@ -1,9 +1,22 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdlib.h>
+
+#define F_MINUS 1
+#define F_PLUS 2
+#define F_ZERO 4
+#define F_HASH 8
+#define F_SPACE 16
+
+#define S_LONG 2
+#define S_SHORT 1
+
+#define UNUSED(x) (void)(x)
+#define BUFF_SIZE 1024
+
 
 int print_percent(va_list args);
 int print_string(va_list args);
@@ -20,7 +33,7 @@ int get_flag(char st, int *j);
 int _printf(const char *format, ...);
 int print_binary(va_list arg, char buf[], int fg, int w, int pr, int sz);
 int _putchar(char c);
-int prints_reverse(va_list x);
+int prints_reverse(va_list x, char *p);
 int put_s(char *s);
 
 #endif

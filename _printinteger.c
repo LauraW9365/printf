@@ -15,7 +15,7 @@ int print_unsigned(va_list ar, char buf[],
 	int fg, int w, int pr, int sz)
 {
 	int i = BUFF_SIZE - 2;
-	unsigned long int num = va_arg(arg, unsigned long int);
+	unsigned long int num = va_arg(ar, unsigned long int);
 
 	num = convert_size_unsgnd(num, sz);
 

@@ -26,15 +26,14 @@ int _printf(const char *format, ...)
 		}
 		else if (format[m + 1] == 'c')
 		{
-			_putchar(va_arg(args, int);
+			_putchar(va_arg(args, int));
 			m++;
 		}
 		else if (format[m + 1] == 's')
 		{
-			int l = put_s(va_arg(args, char *));
-
+			int v = put_s(va_arg(args, char *));
 			m++;
-			l += (v = 1);
+			l += (v - 1);
 		}
 		else if (format[m + 1] == '%')
 		{

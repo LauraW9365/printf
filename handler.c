@@ -65,7 +65,7 @@ int write_number(int is_negative, int ind, char buf[],
 
 	UNUSED(sz);
 
-	if ((fg & F_ZERO) && !(flags & F_MINUS))
+	if ((fg & F_ZERO) && !(fg & F_MINUS))
 		padd = '0';
 	if (is_negative)
 		extra_ch = '-';
@@ -112,7 +112,7 @@ int write_num(int ind, char buf[],
 		for (i = 1; i < w - length + 1; i++)
 			buf[i] = padd;
 		buf[i] = '\0';
-		if (flags & F_MINUS && padd == ' ')/* Asign extra char to left of buffer */
+		if (fg & F_MINUS && padd == ' ')/* Asign extra char to left of buffer */
 		{
 			if (extra_c)
 				buf[--ind] = extra_c;
@@ -159,7 +159,7 @@ int write_unsgnd(int is_negative, int ind, char buf[],
 	UNUSED(is_negative);
 	UNUSED(sz);
 
-	if (pr == 0 && ind == BUFF_SIZE - 2 && buf[ind] == '0')
+	if (precision == 0 && ind == BUFF_SIZE - 2 && buf[ind] == '0')
 		return (0); /* printf(".0d", 0)  no char is printed */
 
 	if (precision > 0 && precision < length)
@@ -171,7 +171,7 @@ int write_unsgnd(int is_negative, int ind, char buf[],
 		length++;
 	}
 
-	if ((flags & F_ZERO) && !(flags & F_MINUS))
+	if ((fg & F_ZERO) && !(fg & F_MINUS))
 		padd = '0';
 
 	if (w > length)
@@ -181,7 +181,7 @@ int write_unsgnd(int is_negative, int ind, char buf[],
 
 		buf[i] = '\0';
 
-		if (flags & F_MINUS) /* Asign extra char to left of buffer [buffer>padd]*/
+		if (fg & F_MINUS) /* Asign extra char to left of buffer [buffer>padd]*/
 		{
 			return (write(1, &buf[ind], length) + write(1, &buf[0], i));
 		}
@@ -215,7 +215,7 @@ int write_pointer(char buf[], int ind, int length,
 	if (w > length)
 	{
 		for (i = 3; i < w - length + 3; i++)
-			buffer[i] = padd;
+			buf[i] = padd;
 		buf[i] = '\0';
 		if (fg & F_MINUS && padd == ' ')/* Asign extra char to left of buffer */
 		{

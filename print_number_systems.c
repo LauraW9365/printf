@@ -60,19 +60,19 @@ int print_binary(va_list arg, char buf[],
  * @sz: Size specifier
  * Return: Number of chars printed
  */
-int prints_octal(va_list arg, char buf[],
+int prints_octal(va_list types, char buf[],
 	int fg, int w, int pr, int sz)
 {
 	int i = BUFF_SIZE - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
 	unsigned long int init_num = num;
 
-	UNUSED(width);
+	UNUSED(w);
 
 	num = convert_size_unsgnd(num, sz);
 
 	if (num == 0)
-		buffer[i--] = '0';
+		buf[i--] = '0';
 
 	buf[BUFF_SIZE - 1] = '\0';
 
@@ -85,7 +85,7 @@ int prints_octal(va_list arg, char buf[],
 	if (fg & F_HASH && init_num != 0)
 		buf[i--] = '0';
 	i++;
-	return (write_unsgnd(0, i, buf, flg, w, pr, sz));
+	return (write_unsgnd(0, i, buf, fg, w, pr, sz));
 }
 
 /************** _print_usigned_hexadecimal.c **************/
@@ -103,7 +103,7 @@ int print_hexadecimal(va_list arg, char buf[],
 	int fg, int w, int pr, int sz)
 {
 	return (print_hexa(arg, "0123456789abcdef", buf,
-		fg, 'x', w, pr, szS));
+		fg, 'x', w, pr, sz));
 }
 
 /************* _printhexadecimal_upper.c **************/
@@ -141,7 +141,7 @@ int printhexa_upper(va_list arg, char map_to[], char buf[],
 	int fg, char flag_ch, int w, int precision, int sz)
 {
 	int i = BUFF_SIZE - 2;
-	unsigned long int num = va_arg(ar, unsigned long int);
+	unsigned long int num = va_arg(arg, unsigned long int);
 	unsigned long int init_num = num;
 
 	UNUSED(w);
@@ -166,5 +166,5 @@ int printhexa_upper(va_list arg, char map_to[], char buf[],
 	}
 	i++;
 
-	return (write_unsgnd(0, i, buf, fg, w, pr, sz));
+	return (write_unsgnd(0, i, buf, fg, w, precision, sz));
 }

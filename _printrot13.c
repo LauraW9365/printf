@@ -10,15 +10,15 @@ int print_rot13(va_list q)
 {
 	int m;
 	int n;
-	char *strng = va_arg(q, char *);
+	char *s = va_arg(q, char *);
 
 	char r13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char V[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	if (strng == NULL)
+	if (s == NULL)
 		return (-1);
 
-	for (n = 0; strng[n]; n++)
+	for (n = 0; s[n]; n++)
 	{
 		if (s[n] < 'A' || (s[n] > 'Z' && s[n] < 'a') || s[n] > 'z')
 			_putchar(s[n]);
@@ -26,7 +26,7 @@ int print_rot13(va_list q)
 		{
 			for (m = 0; m <= 52; m++)
 			{
-				if (strng[n] == r13[m])
+				if (s[n] == r13[m])
 					_putchar(V[n]);
 			}
 		}
@@ -42,26 +42,23 @@ int print_rot13(va_list q)
  * Return: length of the string
 */
 
-int prints_reverse(va_list x)
+int prints_reverse(va_list x, char *p)
 {
-	int j;
-	char *strg;
-	char *p;
+	int m = 0, n;
 
-	strg = va_arg(x, char *);
+	char *s = va_arg(x, char *);
+	(void)p;
 
-	if (!strg)
-		return (-1);
+	if (!s)
+		s  = "(null)";
+	
+	while (s[m])
+		m++;
 
-	p = rev_string(strg);
+	for (n = m - 1; n >= 0; n--)
+		_putchar(s[n]);
 
-	if (!p)
-		p = "(null)";
-
-	for (; p[j] != '\0'; j++)
-		_putchar(p[j]);
-
-	return (j);
+	return (m);
 }
 
 
